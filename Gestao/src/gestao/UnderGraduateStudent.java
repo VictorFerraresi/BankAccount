@@ -32,4 +32,12 @@ public class UnderGraduateStudent extends Student {
         return this.minor;
     }
     
+    public void setMajor(String major){
+        this.major = major;
+    }
+    
+    public void setMinor(String minor){
+        this.minor = minor;
+    }
+    
 }

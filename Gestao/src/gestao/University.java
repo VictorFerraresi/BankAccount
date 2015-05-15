@@ -71,5 +71,15 @@ public class University {
                 return course;
             }
         }
+        return null;
+    }
+    
+    public Student getStudent(long ID){
+        for(Student student : students) { 
+            if(student.getID() == ID){ 
+                return student;
+            }
+        }
+        return null;
     }
 }

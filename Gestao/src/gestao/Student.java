@@ -16,4 +16,24 @@ public class Student {
     protected String phone;
     protected String email;
     
+    public long getID(){
+        return this.ID;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
+    
+    public void setPhone(String phone){
+        this.phone = phone;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
+    }
+    
 }
