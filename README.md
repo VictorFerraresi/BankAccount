@@ -1,2 +1,2 @@
-# BankAccount
+# GestaoAcademica
 Projeto de LP1
