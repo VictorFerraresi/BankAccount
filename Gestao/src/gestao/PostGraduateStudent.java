@@ -15,12 +15,7 @@ public class PostGraduateStudent extends Student {
     
     public PostGraduateStudent(long ID, String name, String address, String phone, String email, String thesisTitle,
             String supervisor){
-        super(ID, name, address, phone, email);
-        this.ID = ID;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
+        super(ID, name, address, phone, email);       
         this.thesisTitle = thesisTitle;
         this.supervisor = supervisor;
     }
