@@ -5,6 +5,8 @@
  */
 package gestao;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 41419839
@@ -14,6 +16,7 @@ public class Course {
     private String title;
     private int numCredits;
     private int maxStudents;
+    private ArrayList<Student> students;
     
     public Course(String code, String title, int numCredits, int maxStudents) {
         this.code = code;
@@ -36,5 +39,40 @@ public class Course {
     
     public void setMaxStudents(int maxStudents){
         this.maxStudents = maxStudents;
+    }
+    
+    public int getMaxStudents(){
+        return this.maxStudents;
+    }
+    
+    public int getActualStudents(){
+        return students.size();
+    }
+    
+    public int getNumCredits(){
+        return this.numCredits;
+    }
+    
+    public void registerStudent(Student student){
+        this.students.add(student);
+    }
+    
+    public void deRegisterStudent(Student student){
+        this.students.remove(student);
+    }
+    
+    public ArrayList<Student> getStudents(){
+        return this.students;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        return (this == obj);
+    }
+    
+    @Override
+    public String toString(){
+        String sformat = String.format("teste");
+        return sformat;
     }
 }

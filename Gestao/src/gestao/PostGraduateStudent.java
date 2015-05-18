@@ -27,4 +27,10 @@ public class PostGraduateStudent extends Student {
     public void setSupervisor(String supervisor){
         this.supervisor = supervisor;
     }
+    
+    @Override
+    public String toString(){
+        String sformat = String.format("teste");
+        return sformat;
+    }
 }

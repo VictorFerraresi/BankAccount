@@ -5,6 +5,8 @@
  */
 package gestao;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 41419839
@@ -15,6 +17,7 @@ public class Student {
     protected String address;
     protected String phone;
     protected String email;
+    protected ArrayList<Course> courses;
     
     public Student(long ID, String name, String address, String phone, String email){
         this.ID = ID;
@@ -42,6 +45,29 @@ public class Student {
     
     public void setEmail(String email){
         this.email = email;
+    }
+    
+    public void registerCourse(Course course){
+        this.courses.add(course);
+    }
+    
+    public void deRegisterCourse(Course course){
+        this.courses.remove(course);
+    }
+    
+    public ArrayList<Course> getCourses(){
+        return this.courses;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        return (this == obj);
+    }
+    
+    @Override
+    public String toString(){
+        String sformat = String.format("teste");
+        return sformat;
     }
     
 }

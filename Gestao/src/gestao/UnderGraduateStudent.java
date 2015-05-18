@@ -36,4 +36,10 @@ public class UnderGraduateStudent extends Student {
         this.minor = minor;
     }
     
+    @Override
+    public String toString(){
+        String sformat = String.format("teste");
+        return sformat;
+    }
+    
 }

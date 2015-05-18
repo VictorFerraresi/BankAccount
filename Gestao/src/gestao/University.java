@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class University {
     private String name;
     private ArrayList<Course> courses;
-    private ArrayList<Student> students;    
+    private ArrayList<Student> students; 
+    private ArrayList<Registration> registrations;
     
     public University(String name){
         this.name = name;        
@@ -23,10 +24,11 @@ public class University {
     }
     
     public Course updateCourse(String code, String title, int numCredits, int maxStudents){  
-        getCourse(code).setTitle(title);
-        getCourse(code).setCredits(numCredits);
-        getCourse(code).setMaxStudents(maxStudents);
-        return getCourse(code);
+        Course crs = getCourse(code);
+        crs.setTitle(title);
+        crs.setCredits(numCredits);
+        crs.setMaxStudents(maxStudents);
+        return crs;
     }
     
     public UnderGraduateStudent addUnderGraduateStudent(long ID, String name, String address, String phone, 
@@ -38,13 +40,14 @@ public class University {
     
     public UnderGraduateStudent updateUnderGraduateStudent(long ID, String name, String address, String phone, 
             String email, String major, String minor){
-        getStudent(ID).setName(name);
-        getStudent(ID).setAddress(address);
-        getStudent(ID).setPhone(phone);
-        getStudent(ID).setEmail(email);
-        getStudent(ID).setMajor(major);
-        getStudent(ID).setMinor(minor);
-        return getStudent(ID);
+        Student sid = getStudent(ID);
+        sid.setName(name);
+        sid.setAddress(address);
+        sid.setPhone(phone);
+        sid.setEmail(email);
+        ((UnderGraduateStudent)sid).setMajor(major);
+        ((UnderGraduateStudent)sid).setMinor(minor);
+        return ((UnderGraduateStudent)sid);
     }
     
     public PostGraduateStudent addPostGraduateStudent(long ID, String name, String address, String phone, 
@@ -56,13 +59,14 @@ public class University {
     
     public PostGraduateStudent updatePostGraduateStudent(long ID, String name, String address, String phone, 
             String email, String thesisTitle, String supervisor){
-        getStudent(ID).setName(name);
-        getStudent(ID).setAddress(address);
-        getStudent(ID).setPhone(phone);
-        getStudent(ID).setEmail(email);
-        getStudent(ID).setThesisTitle(thesisTitle);
-        getStudent(ID).setSupervisor(supervisor);
-        return getStudent(ID);
+        Student sid = getStudent(ID);
+        sid.setName(name);
+        sid.setAddress(address);
+        sid.setPhone(phone);
+        sid.setEmail(email);
+        ((PostGraduateStudent)sid).setThesisTitle(thesisTitle);
+        ((PostGraduateStudent)sid).setSupervisor(supervisor);
+        return ((PostGraduateStudent)sid);
     }
     
     public Course getCourse(String code){
@@ -81,5 +85,67 @@ public class University {
             }
         }
         return null;
+    }
+    
+    public ArrayList<Course> getCourses(long studentID){       
+       return getStudent(studentID).getCourses();
+    }
+    
+    public ArrayList<Student> getStudents(String courseCode){
+       return getCourse(courseCode).getStudents();
+    }
+    
+    public Registration getRegistration(long studentID, String courseCode){
+        Student sid = getStudent(studentID);
+        Course cid = getCourse(courseCode);
+        for(Registration registration : registrations) { 
+            if(sid.equals(registration.getStudent()) && cid.equals(registration.getCourse())){ 
+                return registration;
+            }
+        }
+        return null;
+    }
+    
+    public boolean registerStudent(long studentID, String courseCode){
+        Student std = getStudent(studentID);
+        Course crs = getCourse(courseCode);
+        if(crs.getMaxStudents() >= crs.getActualStudents()){
+            System.out.println("Este curso está lotado. Falhou."); //TODO
+            return false;
+        }
+        int year = 1; int semester = 2; //TODO
+        Registration reg = new Registration(std, crs, year, semester);
+        
+        std.registerCourse(crs);
+        crs.registerStudent(std);
+        
+        registrations.add(reg);
+        return true;
+    }
+    
+    public boolean deRegisterStudent(long studentID, String courseCode){                
+        if(getRegistration(studentID, courseCode) == null){
+            System.out.println("Este aluno não está registrado neste curso."); //TODO
+            return false;
+        }
+        
+        Registration reg = getRegistration(studentID, courseCode);
+        Student std = getStudent(studentID);
+        Course crs = getCourse(courseCode);
+        
+        std.deRegisterCourse(crs);
+        crs.deRegisterStudent(std);
+        
+        registrations.remove(reg);
+        return true;
+    }
+    
+    public String getCourses(){
+        String formatcourses = "Formate a arraylist courses"; //TODO
+        return formatcourses;
+    }
+    public String getStudents(){
+        String formatstudents = "Formate a arraylist students"; //TODO
+        return formatstudents;
     }
 }
