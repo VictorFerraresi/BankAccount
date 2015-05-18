@@ -14,7 +14,8 @@ public class UnderGraduateStudent extends Student {
     private String minor;
     
     public UnderGraduateStudent(long ID, String name, String address, String phone, String email, String major,
-            String minor){
+            String minor){   
+        super(ID, name, address, phone, email);
         this.ID = ID;
         this.name = name;
         this.address = address;

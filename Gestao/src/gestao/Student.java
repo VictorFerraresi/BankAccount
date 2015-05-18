@@ -16,6 +16,14 @@ public class Student {
     protected String phone;
     protected String email;
     
+    public Student(long ID, String name, String address, String phone, String email){
+        this.ID = ID;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+    
     public long getID(){
         return this.ID;
     }
