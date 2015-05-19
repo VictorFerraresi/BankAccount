@@ -5,17 +5,14 @@
  */
 package gestao;
 
-/**
- *
- * @author 41419839
- */
+import java.util.*;
+
 public class Gestao {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) {        
     }
     
 }

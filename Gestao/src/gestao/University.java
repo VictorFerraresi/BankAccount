@@ -14,6 +14,9 @@ public class University {
     private ArrayList<Registration> registrations;
     
     public University(String name){
+        this.courses = new ArrayList<Course>();
+        this.students = new ArrayList<Student>();
+        this.registrations = new ArrayList<Registration>();
         this.name = name;        
     }
     
@@ -109,7 +112,7 @@ public class University {
     public boolean registerStudent(long studentID, String courseCode){
         Student std = getStudent(studentID);
         Course crs = getCourse(courseCode);
-        if(crs.getMaxStudents() >= crs.getActualStudents()){
+        if(crs.getMaxStudents() <= crs.getActualStudents()){
             System.out.println("Este curso está lotado. Falhou."); //TODO
             return false;
         }

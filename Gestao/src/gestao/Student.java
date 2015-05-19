@@ -25,6 +25,7 @@ public class Student {
         this.address = address;
         this.phone = phone;
         this.email = email;
+        this.courses = new ArrayList<Course>();
     }
     
     public long getID(){

@@ -23,6 +23,7 @@ public class Course {
         this.title = title;
         this.numCredits = numCredits;
         this.maxStudents = maxStudents;
+        this.students = new ArrayList<Student>();
     }
 
     public String getCode(){
