@@ -5,10 +5,6 @@
  */
 package gestao;
 
-/**
- *
- * @author 41419839
- */
 public class PostGraduateStudent extends Student {
     private String thesisTitle;
     private String supervisor;

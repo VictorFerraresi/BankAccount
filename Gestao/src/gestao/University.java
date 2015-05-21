@@ -143,12 +143,10 @@ public class University {
         return true;
     }
     
-    public String getCourses(){
-        String formatcourses = "Formate a arraylist courses"; //TODO
-        return formatcourses;
+    public String getCourses(){        
+        return courses.toString();
     }
     public String getStudents(){
-        String formatstudents = "Formate a arraylist students"; //TODO
-        return formatstudents;
+        return students.toString();
     }
 }

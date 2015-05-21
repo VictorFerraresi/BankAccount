@@ -7,10 +7,6 @@ package gestao;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author 41419839
- */
 public class Student {
     protected long ID;
     protected String name;

@@ -255,6 +255,16 @@ public class Gestao {
         showMenu(u);
     }
     
+    public static void showAllCourses(University u){
+        System.out.println(u.getCourses());  
+        showMenu(u);
+    }
+    
+    public static void showAllStudents(University u){
+        System.out.println(u.getStudents());   
+        showMenu(u);
+    }
+    
     public static void showMenu(University u){
         Scanner input = new Scanner(System.in);
         System.out.println("Escolha uma opção:");
@@ -264,6 +274,8 @@ public class Gestao {
         System.out.println("4 - Visualizar Estudantes Curso");
         System.out.println("5 - Matricular Estudante em Curso");
         System.out.println("6 - Cancelar Matrícula");
+        System.out.println("7 - Visualizar Todos Os Cursos");
+        System.out.println("8 - Visualizar Todos Os Estudantes");
         System.out.println("0 - Sair do Programa");
         int opt = input.nextInt();
         
@@ -295,11 +307,18 @@ public class Gestao {
                 showDeRegisterMenu(u);
                 break;
             }
+            case 7:{
+                showAllCourses(u);
+                break;
+            }
+            case 8:{
+                showAllStudents(u);
+                break;
+            }
             default:{
                 showMenu(u);
                 break;
             }
         }
-    }
-    
+    }  
 }
