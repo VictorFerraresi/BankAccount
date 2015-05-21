@@ -1,6 +1,6 @@
 package gestao;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class University {
     private String name;
@@ -22,7 +22,7 @@ public class University {
     }
     
     public Course updateCourse(String code, String title, int numCredits, int maxStudents){  
-        Course crs = getCourse(code);
+        Course crs = getCourse(code);        
         crs.setTitle(title);
         crs.setCredits(numCredits);
         crs.setMaxStudents(maxStudents);
@@ -108,10 +108,14 @@ public class University {
         Student std = getStudent(studentID);
         Course crs = getCourse(courseCode);
         if(crs.getMaxStudents() <= crs.getActualStudents()){
-            System.out.println("Este curso está lotado. Falhou."); //TODO
+            System.out.println("<!> Este curso está lotado. Aluno não foi matriculado."); //TODO
             return false;
         }
-        int year = 1; int semester = 2; //TODO
+        Scanner input = new Scanner(System.in);
+        System.out.println("Digite o ano da matrícula:");
+        int year = input.nextInt();
+        System.out.println("Digite o semestre da matrícula:");
+        int semester = input.nextInt();
         Registration reg = new Registration(std, crs, year, semester);
         
         std.registerCourse(crs);
@@ -123,7 +127,7 @@ public class University {
     
     public boolean deRegisterStudent(long studentID, String courseCode){                
         if(getRegistration(studentID, courseCode) == null){
-            System.out.println("Este aluno não está registrado neste curso."); //TODO
+            System.out.println("<!> Este aluno não está registrado neste curso."); //TODO
             return false;
         }
         

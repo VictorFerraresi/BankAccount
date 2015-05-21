@@ -27,6 +27,10 @@ public class Gestao {
                 input.nextLine();
                 System.out.println("Digite o código do curso:");
                 String course = input.nextLine();
+                if(u.getCourse(course) == null){
+                    System.out.println("<!> Este curso não existe!");
+                    showCourseMenu(u);
+                }
                 System.out.println(u.getCourse(course).toString());
                 showCourseMenu(u);
                 break;
@@ -35,6 +39,10 @@ public class Gestao {
                 System.out.println("Digite o código do curso que deseja criar:");                
                 String course = input.next();
                 input.nextLine();
+                if(u.getCourse(course) != null){
+                    System.out.println("<!> Este código de curso já existe!");
+                    showCourseMenu(u);
+                }
                 System.out.println("Digite o nome do curso que deseja criar:");
                 String name = input.nextLine();
                 System.out.println("Digite o número de créditos do curso que deseja criar:");
@@ -50,6 +58,10 @@ public class Gestao {
                 input.nextLine();
                 System.out.println("Digite o código do curso que deseja atualizar:");
                 String course = input.nextLine();
+                if(u.getCourse(course) == null){
+                    System.out.println("<!> Este curso não existe!");
+                    showCourseMenu(u);
+                }
                 System.out.println("Digite o novo nome do curso:");
                 String name = input.nextLine();
                 System.out.println("Digite o novo número de créditos do curso:");
@@ -85,6 +97,10 @@ public class Gestao {
             case 1:{
                 System.out.println("Digite o ID do Estudante:");
                 long student = input.nextLong();
+                if(u.getStudent(student) == null){
+                    System.out.println("<!> Este estudante não existe!");
+                    showStudentMenu(u);
+                }
                 System.out.println(u.getStudent(student).toString());
                 showStudentMenu(u);
                 break;
@@ -99,6 +115,10 @@ public class Gestao {
                         System.out.println("Digite o ID do estudante que deseja criar:");
                         long student = input.nextLong();
                         input.nextLine();
+                        if(u.getStudent(student) != null){
+                            System.out.println("<!> Este código de estudante já existe!");
+                            showStudentMenu(u);
+                        }
                         System.out.println("Digite o nome do estudante que deseja criar:");
                         String name = input.nextLine();
                         System.out.println("Digite o endereço do estudante que deseja criar:");
@@ -120,6 +140,10 @@ public class Gestao {
                         System.out.println("Digite o ID do estudante que deseja criar:");
                         long student = input.nextLong();
                         input.nextLine();
+                        if(u.getStudent(student) != null){
+                            System.out.println("<!> Este código de estudante já existe!");
+                            showStudentMenu(u);
+                        }
                         System.out.println("Digite o nome do estudante que deseja criar:");
                         String name = input.nextLine();
                         System.out.println("Digite o endereço do estudante que deseja criar:");
@@ -138,7 +162,7 @@ public class Gestao {
                         break;
                     }
                     default:{
-                        System.out.println("Opção Inválida.");
+                        System.out.println("<!> Opção Inválida.");
                         showStudentMenu(u);
                         break;
                     }
@@ -155,6 +179,10 @@ public class Gestao {
                         System.out.println("Digite o ID do estudante que deseja atualizar:");
                         long student = input.nextLong();
                         input.nextLine();
+                        if(u.getStudent(student) == null){
+                            System.out.println("<!> Este estudante não existe!");
+                            showStudentMenu(u);
+                        }
                         System.out.println("Digite o novo nome do estudante:");
                         String name = input.nextLine();
                         System.out.println("Digite o novo endereço do estudante:");
@@ -176,6 +204,10 @@ public class Gestao {
                         System.out.println("Digite o ID do estudante que deseja atualizar:");
                         long student = input.nextLong();
                         input.nextLine();
+                        if(u.getStudent(student) == null){
+                            System.out.println("<!> Este estudante não existe!");
+                            showStudentMenu(u);
+                        }
                         System.out.println("Digite o nome do estudante:");
                         String name = input.nextLine();
                         System.out.println("Digite o endereço do estudante:");
@@ -194,7 +226,7 @@ public class Gestao {
                         break;
                     }
                     default:{
-                        System.out.println("Opção Inválida.");
+                        System.out.println("<!> Opção Inválida.");
                         showStudentMenu(u);
                         break;
                     }
@@ -202,7 +234,7 @@ public class Gestao {
                 break;
             }
             default:{
-                showCourseMenu(u);
+                showStudentMenu(u);
                 break;
             }
         }
@@ -212,6 +244,10 @@ public class Gestao {
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o ID do estudante:");
         long student = input.nextLong();
+        if(u.getStudent(student) == null){
+            System.out.println("<!> Este estudante não existe!");
+            showMenu(u);
+        }
         System.out.println(u.getCourses(student).toString());
         u.getCourses(student);
         showMenu(u);
@@ -221,6 +257,10 @@ public class Gestao {
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o código do curso:");
         String course = input.nextLine();
+        if(u.getCourse(course) == null){
+            System.out.println("<!> Este curso não existe!");
+            showMenu(u);
+        }
         System.out.println(u.getStudents(course).toString());
         showMenu(u);
     }
@@ -229,8 +269,16 @@ public class Gestao {
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o ID do estudante:");
         long student = input.nextLong();
-        System.out.println("Digite o código do curso:");
+        if(u.getStudent(student) == null){
+            System.out.println("<!> Este estudante não existe!");
+            showRegisterMenu(u);
+        }
+        System.out.println("Digite o código do curso:");        
         String course = input.next();
+        if(u.getCourse(course) == null){
+            System.out.println("<!> Este curso não existe!");
+            showRegisterMenu(u);
+        }
         
         u.registerStudent(student, course);
         showMenu(u);
@@ -240,8 +288,16 @@ public class Gestao {
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o ID do estudante:");
         long student = input.nextLong();
+        if(u.getStudent(student) == null){
+            System.out.println("<!> Este estudante não existe!");
+            showRegisterMenu(u);
+        }
         System.out.println("Digite o código do curso:");
         String course = input.next();
+        if(u.getCourse(course) == null){
+            System.out.println("<!> Este curso não existe!");
+            showRegisterMenu(u);
+        }
         
         u.deRegisterStudent(student, course);
         showMenu(u);
