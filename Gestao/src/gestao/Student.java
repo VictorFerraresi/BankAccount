@@ -64,11 +64,10 @@ public class Student {
     public boolean equals(Object obj){
         return (this == obj);
     }
-    
+
     @Override
-    public String toString(){
-        String sformat = String.format("teste");
-        return sformat;
+    public String toString() {
+        return "Student{" + "ID=" + ID + ", name=" + name + ", address=" + address + ", phone=" + phone + ", email=" + email + ", courses=" + courses + '}';
     }
     
 }

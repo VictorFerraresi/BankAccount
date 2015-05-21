@@ -35,11 +35,9 @@ public class UnderGraduateStudent extends Student {
     public void setMinor(String minor){
         this.minor = minor;
     }
-    
+
     @Override
     public String toString(){
-        String sformat = String.format("teste");
-        return sformat;
+       return "\n ID: "+super.ID+"\n Nome: "+super.name+"\n Address: "+super.address+"\n Phone: "+super.phone+"\n Email: "+super.email+"\n thesisTitle: "+this.getMinor()+"\n Supervisor: "+this.getMajor();
     }
-    
 }

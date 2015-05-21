@@ -70,10 +70,10 @@ public class Course {
     public boolean equals(Object obj){
         return (this == obj);
     }
-    
+
     @Override
-    public String toString(){
-        String sformat = String.format("teste");
-        return sformat;
+    public String toString() {
+        return "Course{" + "code=" + code + ", title=" + title + ", numCredits=" + numCredits + ", maxStudents=" + maxStudents + '}';
     }
+    
 }
