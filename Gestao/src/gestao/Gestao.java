@@ -35,7 +35,7 @@ public class Gestao {
                 input.nextLine();
                 System.out.println("Digite o código do curso:");
                 String course = input.nextLine();
-                u.getCourse(course).toString();
+                System.out.println(u.getCourse(course).toString());
                 showCourseMenu(u);
                 break;
             }
@@ -93,7 +93,7 @@ public class Gestao {
             case 1:{
                 System.out.println("Digite o ID do Estudante:");
                 long student = input.nextLong();
-                u.getStudent(student).toString();
+                System.out.println(u.getStudent(student).toString());
                 showStudentMenu(u);
                 break;
             }
