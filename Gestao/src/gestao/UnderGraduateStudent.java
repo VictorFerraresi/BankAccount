@@ -40,4 +40,5 @@ public class UnderGraduateStudent extends Student {
     public String toString(){
        return "\n ID: "+super.ID+"\n Nome: "+super.name+"\n Address: "+super.address+"\n Phone: "+super.phone+"\n Email: "+super.email+"\n Minor: "+this.getMinor()+"\n Major: "+this.getMajor();
     }
+    
 }
